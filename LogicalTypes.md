@@ -649,11 +649,14 @@ should always be determined by the following rules:
    or uses the `LIST`-annotated group's name with `_tuple` appended then the
    repeated type is the element type and elements are required.
 4. Otherwise, the repeated field's type is the element type with the repeated
-   field's repetition.
+   field's repetition (one-level `LIST` encoding).
 
 Examples that can be interpreted using these rules:
 
 ```
+// List<Integer> (one-level `LIST` encoding)
+repeated int32 a;
+
 // List<Integer> (nullable list, non-null elements)
 optional group my_list (LIST) {
   repeated int32 element;
